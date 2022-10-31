@@ -1,0 +1,26 @@
+{% extends "main.html" %}
+
+
+{% block content %}
+<h2>Register</h2>
+<form action="" method="post">
+  {% csrf_token %}
+  <p>
+      <label for="primary_phone_number">Enter your primary number</label>
+      <input type="text" name="primary_phone_number" placeholder="+8801*********">
+  </p>
+  <p>
+      <label for="secondary_numbers">Enter your sencodary numbers by comma seprating them</label>
+      <textarea name="secondary_numbers" rows="3" placeholder="+8801**********, +8801*********"></textarea>
+  </p>
+  {% for field in form %}
+  <p>
+      <label>{{field.label}}</label>
+      {{ field }}
+  </p>
+  {% endfor %}
+  <input type="submit" name="" value="Register">
+
+</form>
+
+{% endblock %}

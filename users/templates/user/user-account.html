@@ -1,0 +1,32 @@
+{% extends "main.html" %}
+
+{% block content %}
+
+<div class="">
+  <h3>Name: {{user.name}}</h3>
+  <h3>Primary Phone Number: {{user.primary_phone_number}}</h3>
+  {% if user.secondary_number_field %}
+    <h3>Secondary Number: {{user.secondary_number_field}}</h3>
+  {% endif %}
+  {% if user.plan %}
+    <h3>Your Plan: {{user.plan}}</h3> <h4><a href="{% url 'change-plan' %}">Change Plan</a> {% if user.plan == 'Gold' %} <a href="{% url 'cancel-plan' %}">Cancel Plan</a> {% endif %}<h4>
+
+    {% if payment_done %}
+      <h3> You have completed the payment of the monthly data charges. Thank you.</h3>
+    {% else %}
+      <h3>You have not yet charged for your data plan this month. Please keep available balance in your account.</h3>
+    {% endif %}
+
+  {% else %}
+    <h3>Currently you are not subscribe to any plan. <a href="{% url 'change-plan' %}">Subscribe to a Plan Now</a></h3>
+  {% endif %}
+
+  <h3> Available Balance: {{user.available_balance}} BDT </h3>
+
+
+
+
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "main.html" %}
+
+{% block content %}
+
+<h3>Login</h3>
+
+<form action="" method="post">
+  {% csrf_token %}
+  <p>
+      <label for="phonenumber">Your Primary Phone Number</label>
+      <input type="text" name="phonenumber" value="">
+  </p>
+  <p>
+      <label for="password">Your Password</label>
+      <input type="password" name="password" value="">
+  </p>
+  <input type="submit" name="" value="Log in">
+</form>
+
+<h4>Do not have an account? <a href="{% url 'register' %}">Sign Up</a> </h4>
+
+{% endblock %}

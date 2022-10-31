@@ -1,0 +1,18 @@
+{% extends "main.html" %}
+
+{% block content %}
+
+<h1>Get a new plan new.</h1>
+
+<form action="" method="post">
+  {% csrf_token %}
+
+  {{form.plan.label}}
+  {{form.plan}}
+
+  <input type="submit" name="" value="Get the Plan">
+
+</form>
+
+
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<ul>
+  {% for company_name in company %}
+
+
+    <li><h2><a href="{% url 'company-detail' company_name.id %}">{{company_name.name}}</a></h2></li>
+
+  {% endfor %}
+
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends "main.html" %}
+
+{% block content %}
+
+<style>
+  table{
+    padding: 10px;
+  }
+  table td{
+    padding:10px;
+  }
+  table th{
+    padding:10px;
+  }
+</style>
+
+<table border=1>
+  <th>Username</th>
+  <th>Primary Phone Number</th>
+  <th>Subsciber Plan</th>
+  <th>Payment Status</th>
+  <th>Last Payment</th>
+
+  {% for user in users %}
+    <tr>
+      <td>{{user.name}}</td>
+      <td>{{user.primary_phone_number}}</td>
+      {% if user.plan %}
+          <td>{{user.plan}}</td>
+          {% if user.payment_done %}
+            <td>Paid</td>
+          {% else %}
+            <td>Payment is not complete</td>
+          {% endif %}
+          <td>{{ user.updated|date:'d-m-Y' }}</td>
+
+      {% else %}
+          <td>No Plan is being subscribed to now</td>
+          <td>Payment not required</td>
+          <td>Not applicable</td>
+      {% endif %}
+
+
+    </tr>
+  {% endfor %}
+</table>
+
+{% endblock %}

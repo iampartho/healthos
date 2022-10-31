@@ -1,0 +1,18 @@
+
+table{
+  padding: 10px;
+}
+table td{
+  padding:10px;
+}
+table th{
+  padding:10px;
+}
+.charge--userplan{
+  cursor:pointer;
+  color:green;
+}
+.cancel--userplan{
+  cursor:pointer;
+  color:red;
+}
